@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.body {
+    background-color: black;
+    color: white;
+}
+
+.tickermarq {
+    border-top: 10px;
+    border-bottom: 10px;
+    padding-top: 10;
+}
+
+.imgg {
+    border-top: 30px;
+}
+
+.nlink {
+    border: none;
+    text-decoration: none;
+}
+
+
+p {
+    padding: 0;
+    border: 0;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
