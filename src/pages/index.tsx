@@ -1,11 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import {
-	AnonAadhaarProof,
-	LogInWithAnonAadhaar,
-	useAnonAadhaar,
-} from "anon-aadhaar-react";
+import { AnonAadhaarProof, LogInWithAnonAadhaar, useAnonAadhaar } from "anon-aadhaar-react";
 import { useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
@@ -13,6 +9,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import ImageGallery from "react-image-gallery";
+import NavbarComponent from "./Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -20,21 +17,15 @@ import "react-image-gallery/styles/css/image-gallery.css";
 const images = [
 	{
 		original:
-			"https://media.ptcnews.tv/wp-content/uploads/2023/09/Election-2_697b9153e37b1aa721a8aa5b9d577eac_1280X720.webp",
+			"https://i.imgur.com/7fJ98QD.png",
 		thumbnail:
-			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRdJ_YktsYqty4ui6xzCcX9btxLgduKoJ5SA&usqp=CAU",
+			"https://i.imgur.com/7fJ98QD.png",
 	},
 	{
 		original:
-			"https://media.ptcnews.tv/wp-content/uploads/2023/09/Election-2_697b9153e37b1aa721a8aa5b9d577eac_1280X720.webp",
+			"https://i.imgur.com/sVVnAy8.png",
 		thumbnail:
-			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRdJ_YktsYqty4ui6xzCcX9btxLgduKoJ5SA&usqp=CAU",
-	},
-	{
-		original:
-			"https://media.ptcnews.tv/wp-content/uploads/2023/09/Election-2_697b9153e37b1aa721a8aa5b9d577eac_1280X720.webp",
-		thumbnail:
-			"https://wallpapers.com/images/hd/naruto-characters-five-kage-in-battlefield-r7b1n3bxou26bo1t.jpg",
+			"https://i.imgur.com/sVVnAy8.png",
 	},
 ];
 
@@ -49,44 +40,9 @@ export default function Home() {
 	return (
 		<div className="body">
 			<div>
-				<Navbar
-					expand="lg"
-					className="bg-body-tertiary"
-					data-bs-theme="dark"
-				>
-					<Container fluid>
-						<Navbar.Brand href="#">
-							<Image
-								src="https://as2.ftcdn.net/v2/jpg/05/84/26/61/1000_F_584266196_lFkZt7CCgGrlhil83DsI0MyGvd8eSDoc.jpg"
-								width={50}
-								height={20}
-							></Image>
-						</Navbar.Brand>
-						<Navbar.Toggle aria-controls="navbarScroll" />
-						<Navbar.Collapse id="navbarScroll">
-							<Nav
-								className="me-auto my-2 my-lg-0"
-								style={{ maxHeight: "100px" }}
-								navbarScroll
-							>
-								<Nav.Link>
-									<Link className="nlink" href="/dashboard">
-										Dashboard
-									</Link>
-								</Nav.Link>
-								<Nav.Link>
-									<Link className="nlink" href="#guidelines">
-										Guidelines
-									</Link>
-								</Nav.Link>
-							</Nav>
+				<NavbarComponent />
 
-							<LogInWithAnonAadhaar />
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
-
-				<div className="ticker">
+				<div>
 					<div className="tickermarq">
 						<marquee>
 							Change of Schedule for General Election to the
@@ -121,8 +77,8 @@ export default function Home() {
 							className="timeline"
 						></Image>
 
-                        <br></br>
-                        <br></br>
+						<br></br>
+						<br></br>
 
 
 						<div className="text-center">
@@ -132,7 +88,7 @@ export default function Home() {
 									<p>✅ Proof is valid</p>
 									<p>Got your Aadhaar Identity Proof</p>
 									<p>Welcome anon!</p>
-                                    <br></br>
+									<br></br>
 									<AnonAadhaarProof
 										code={JSON.stringify(
 											anonAadhaar.pcd,

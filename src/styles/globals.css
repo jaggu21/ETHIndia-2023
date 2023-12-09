@@ -2,10 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    margin: 0;
+}
 
 .body {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+.container {
+    margin: 0px;
+    padding: 0px;
 }
 
 .tickermarq {
@@ -21,6 +36,15 @@
 .nlink {
     border: none;
     text-decoration: none;
+    color: black;
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.nlink:hover {
+    /* Increase the scale on hover to make the text pop up */
+    color: grey;
 }
 
 
