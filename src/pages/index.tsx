@@ -9,7 +9,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import ImageGallery from "react-image-gallery";
-import NavbarComponent from "./Navbar";
+import NavbarComponent from "./NavBar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -42,7 +42,7 @@ export default function Home() {
 			<div>
 				<NavbarComponent />
 
-				<div>
+				<div style={{paddingTop:"7vw"}}>
 					<div className="tickermarq">
 						<marquee>
 							Change of Schedule for General Election to the
@@ -62,11 +62,12 @@ export default function Home() {
 					</div>
 
 					<Container>
-						<ImageGallery
-							items={images}
-							showThumbnails={true}
-							className="imgg"
-						/>
+						<div className="imgg">
+							<ImageGallery
+								items={images}
+								showThumbnails={true}
+							/>
+						</div>
 
 						<br></br>
 						<br></br>

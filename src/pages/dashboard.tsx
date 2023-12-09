@@ -19,7 +19,7 @@ import { ethers } from 'ethers';
 import { SyncLoader } from "react-spinners";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import NavbarComponent from "./Navbar";
+import NavbarComponent from "./NavBar";
 import { groth16, Groth16Proof, ZKArtifact } from 'snarkjs'
 
 // https://scroll-sepolia.l2scan.co/address/0xDF62dBB5DE7ab392e64A5Bc5B86E5Dd723afacc4
@@ -165,9 +165,9 @@ async function voteForParty(anonAadhaar: any, votesDistribution: number[]) {
 	}
 }
 
-const DashboardPage = (props) => {
+const DashboardPage = (props:any) => {
 	const router = useRouter();
-	const [voteState, setVoteState] = useState({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
+	const [voteState, setVoteState] :any= useState({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
 	const [anonAadhaar] = useAnonAadhaar();
 	const [wardCandidates, setPartyDetails] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -189,7 +189,7 @@ const DashboardPage = (props) => {
 		} else {
 			// Fetch party details and update the state
 			getPartyDetails()
-				.then((details) => {
+				.then((details:any) => {
 					// Cache the new data
 					localStorage.setItem('cachedPartyDetails', JSON.stringify(details));
 					localStorage.setItem('cachedTimestamp', Date.now().toString());
@@ -206,8 +206,8 @@ const DashboardPage = (props) => {
 		console.log("Anon Aadhaar: ", anonAadhaar.status);
 	}, [anonAadhaar]);
 
-	const handleChange = (event, idx) => {
-		const newVoteState = { ...voteState };
+	const handleChange = (event:any, idx:any) => {
+		const newVoteState:any = { ...voteState };
 		// console.log(idx);
 		// console.log(event.target.value);
 		var oldVote = parseInt(newVoteState[idx]);
@@ -232,11 +232,11 @@ const DashboardPage = (props) => {
 	};
 
 	const chartData = {
-		labels: wardCandidates.map((party) => party.name),
+		labels: wardCandidates.map((party:any) => party.name),
 		datasets: [
 			{
 				label: 'Votes',
-				data: wardCandidates.map((party) => party.votes),
+				data: wardCandidates.map((party:any) => party.votes),
 				backgroundColor: [
 					'rgba(75,192,192,0.2)',
 					'rgba(255, 159, 64, 0.2)',
@@ -270,6 +270,7 @@ const DashboardPage = (props) => {
 				<div className="body">
 					<div>
 					<NavbarComponent />
+					<div style={{paddingTop:"10vw"}}>
 						{
 							loading ?
 
@@ -294,7 +295,7 @@ const DashboardPage = (props) => {
 												<h2>Votes assigned {voteCount}/10</h2>
 											</div>
 											<Row>
-												{wardCandidates.map((candidate) => {
+												{wardCandidates.map((candidate:any) => {
 													return (
 														<Col key={candidate.id} md={4}>
 															<Card data-bs-theme="light"
@@ -341,12 +342,14 @@ const DashboardPage = (props) => {
 													);
 												})}
 											</Row>
-
-											<Button onClick={() => voteForParty(anonAadhaar, Object.values(voteState))}
-											style = {{width: "100px", marginTop: "20px", marginBottom: "20px", padding: "10px", fontSize: "20px"}}	
-											>
-											Vote 🗳
-											</Button>
+											
+											<div className="startContainer">
+												<Button className="button pulseText" onClick={() => voteForParty(anonAadhaar, Object.values(voteState))}
+												style = {{width: "100px", marginTop: "20px", marginBottom: "20px", padding: "10px", fontSize: "20px",backgroundColor:"orange"}}	
+												>
+												Vote 🗳
+												</Button>
+											</div>
 
 											{/* <div>
 												<Bar data={chartData} />
@@ -354,6 +357,7 @@ const DashboardPage = (props) => {
 										</Container>
 									</div>
 								)}
+							</div>
 						<ToastContainer />
 					</div>
 				</div>

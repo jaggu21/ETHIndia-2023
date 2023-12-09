@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavbarComponent from "./Navbar";
+import NavbarComponent from "./NavBar";
 import Container from "react-bootstrap/Container";
 import { SyncLoader } from "react-spinners";
 
@@ -77,7 +77,7 @@ const resultpage = () => {
         } else {
             // Fetch party details and update the state
             getPartyDetails()
-                .then((details) => {
+                .then((details:any) => {
                     // Cache the new data
                     localStorage.setItem('cachedPartyDetails', JSON.stringify(details));
                     localStorage.setItem('cachedTimestamp', Date.now().toString());
@@ -91,11 +91,11 @@ const resultpage = () => {
     }, []);
 
     const chartData = {
-        labels: wardCandidates.map((party) => party.name),
+        labels: wardCandidates.map((party:any) => party.name),
         datasets: [
             {
                 label: 'Votes',
-                data: wardCandidates.map((party) => party.votes),
+                data: wardCandidates.map((party:any) => party.votes),
                 backgroundColor: [
                     'rgba(75,192,192,0.2)',
                     'rgba(255, 159, 64, 0.2)',
@@ -120,6 +120,7 @@ const resultpage = () => {
         <div className="body">
             <NavbarComponent />
             <br />
+            <div style={{paddingTop:"7vw"}}> 
             {
                 loading ? (
                     <SyncLoader
@@ -132,11 +133,14 @@ const resultpage = () => {
 					/>
                 ): 
                 (
+                    
                     <Container style={{width: "75%"}}>
                         <Bar data={chartData} />
                     </Container>
+                    
                 )
             }
+            </div>
         </div>
     )
 }

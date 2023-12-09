@@ -7,11 +7,23 @@ import { LogInWithAnonAadhaar } from "anon-aadhaar-react";
 
 const NavbarComponent = () => {
     return (
+        
         <Navbar
             expand="lg"
             className="bg-body-tertiary"
             data-bs-theme="light"
-            style={{ marginBottom: "20px", height: "100px", fontSize: "22px" }}
+            style={{ 
+                marginBottom: "20px", height: "100px", fontSize: "22px",top: "0",
+            display: "inline-flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            height: "5vw",
+            width: "100%",
+            position: "fixed",
+            zIndex: "1",
+            background: "white",
+            boxShadow: "0px 1px 2px rgba(255, 172, 28, 0.5), 0px 2px 4px rgba(255, 172, 28, 0.5), 0px 4px 8px rgba(255, 172, 28, 0.5), 0px 8px 16px rgba(255, 172, 28, 0.5)",
+        }}
         >
             <Container fluid>
                 <Navbar.Brand href="#">
@@ -60,6 +72,7 @@ const NavbarComponent = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        
     );
 };
 
