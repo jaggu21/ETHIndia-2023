@@ -348,9 +348,9 @@ const DashboardPage = (props) => {
 											Vote 🗳
 											</Button>
 
-											<div>
+											{/* <div>
 												<Bar data={chartData} />
-											</div>
+											</div> */}
 										</Container>
 									</div>
 								)}

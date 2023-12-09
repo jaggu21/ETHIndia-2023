@@ -44,6 +44,16 @@ const NavbarComponent = () => {
                                 Dashboard
                             </Link>
                         </Nav.Link>
+
+
+                        <Nav.Link>
+                            <Link
+                                className="nlink"
+                                href="/resultpage"
+                            >
+                                Results
+                            </Link>
+                            </Nav.Link>
                     </Nav>
 
                     <LogInWithAnonAadhaar />
